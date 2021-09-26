@@ -6,6 +6,7 @@
       <NuxtLink to="/">루트홈페이지</NuxtLink>
       <NuxtLink to="/main">메인홈페이지</NuxtLink>
       <NuxtLink to="/product">상품홈페이지</NuxtLink>
+      <!-- <router-link></router-link> -->
     </header>
     <Nuxt />
   </main>
