@@ -1,24 +1,36 @@
 <template>
-  <div>
-    <h1>카트페이지</h1>
-    <div>
-      <ul>
-        <!-- cartItem안에 id가 있기 때문에 :key에 id바로 해도됨 -->
-        <li v-for="cartItem in $store.state.cartItems" :key="cartItem.id">
-          {{ cartItem }}
-          <img :src="cartItem.imageUrl" :alt="cartItem.name" />
-          <p>{{ cartItem.name }}</p>
-        </li>
-      </ul>
-    </div>
-    <div>
+  <div class="container">
+    <h1 class="list-title">카트페이지</h1>
+    <CartList />
+    <div class="extra-panel">
       <button>구매하기</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import CartList from '~/components/cartList.vue'
+// import { FETCH_CART_ITEMS } from '~/store'
+export default {
+  components: { CartList },
+  // async asyncData({ store }) {
+  // 위에 $store.state.cartItems에서 자동으로 뿌려지지
+  // 근데 store.index.js 안에 nuxtServerinit 때문에 필요 없어짐
+  //   await store.dispatch(FETCH_CART_ITEMS)
+  // },
+}
 </script>
 
-<style></style>
+<style scoped>
+.container {
+  margin: 2rem 10rem;
+}
+.list-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.extra-panel {
+  text-align: right;
+  padding: 0.2rem 0;
+}
+</style>
