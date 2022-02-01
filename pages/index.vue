@@ -29,13 +29,13 @@
 
 <script>
 import SearchInput from '@/components/SearchInput.vue'
-import { fetchProductById, fetchProductsByKeyword } from '@/api/index'
+import { fetchProducts, fetchProductsByKeyword } from '@/api/index'
 // import ProductList from '../components/ProductList.vue'
 export default {
   components: { SearchInput },
   // components: { ProductList },
   async asyncData() {
-    const response = await fetchProductById()
+    const response = await fetchProducts()
     // 배열에 map을 돌려서 변환
     // ... 풀어서 넣는거임
     const products = response.data.map((item) => {
@@ -53,7 +53,6 @@ export default {
   },
   methods: {
     moveToDetailPage(id) {
-      console.log(id)
       this.$router.push(`detail/${id}`)
     },
     async searchProducts() {
