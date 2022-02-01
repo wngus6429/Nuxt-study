@@ -5,6 +5,10 @@ const instance = axios.create({
   // http://localhost:3000
 })
 
+function fetchProducts() {
+  return instance.get(`/products`)
+}
+
 function fetchProductById(id) {
   return instance.get(`/products/${id}`)
 }

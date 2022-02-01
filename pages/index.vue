@@ -28,15 +28,14 @@
 </template>
 
 <script>
-import axios from 'axios'
 import SearchInput from '@/components/SearchInput.vue'
-import { fetchProductsByKeyword } from '@/api/index'
+import { fetchProductById, fetchProductsByKeyword } from '@/api/index'
 // import ProductList from '../components/ProductList.vue'
 export default {
   components: { SearchInput },
   // components: { ProductList },
   async asyncData() {
-    const response = await axios.get('http://localhost:3000/products')
+    const response = await fetchProductById()
     // 배열에 map을 돌려서 변환
     // ... 풀어서 넣는거임
     const products = response.data.map((item) => {
