@@ -1,7 +1,9 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   server: {
-    port: 5000, // 서버 커스텀, default: 3000
+    // 서버 커스텀, default: 3000
+    // 배포할떄 포트가 5000번이 되지 않게 한다
+    port: process.env.NODE_ENV === 'production' ? null : 5000,
   },
   head: {
     title: 'captain',
