@@ -5,6 +5,12 @@ export default {
     // 배포할떄 포트가 5000번이 되지 않게 한다
     port: process.env.NODE_ENV === 'production' ? null : 5000,
   },
+  env: {
+    baseURL:
+      process.env.NODE_ENV === 'production'
+        ? 'https://my-json-server.typicode.com/wngus6429/Nuxt-study-api'
+        : 'http://localhost:3000',
+  },
   head: {
     title: 'captain',
     htmlAttrs: {
