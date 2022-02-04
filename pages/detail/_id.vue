@@ -25,14 +25,23 @@ export default {
     // params로 해결
     const id = params.id
     const response = await fetchProductById(id)
-    console.log(response)
     const product = response.data
     return { product }
+  },
+  head: {
+    title: 'Shopping Item Detail',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: '이 상품은 ~~입니다.',
+      },
+    ],
   },
   methods: {
     async addToCart() {
       const response = await createCartItem(this.product)
-      console.log('리스폰', response)
+      console.log(response)
       this.$store.commit('addCartItem', this.product)
       this.$router.push('/cart')
     },

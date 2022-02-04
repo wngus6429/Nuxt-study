@@ -5,12 +5,12 @@
       <SearchInput v-model="searchKeyword" @search="searchProducts" />
       <ul>
         <li
-          class="item flex"
           v-for="product in products"
           :key="product.id"
+          class="item flex"
           @click="moveToDetailPage(product.id)"
         >
-          {{ product }}
+          <!-- {{ product }} -->
           <img
             class="product-image"
             :src="product.imageUrl"
